@@ -1,382 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nordar, LLC</title>
-  <meta name="description" content="Fintech software consulting and app publishing." />
-  <style>
-    :root {
-      --bg: #04122c;
-      --panel: rgba(7, 18, 42, 0.92);
-      --text: #eef2f8;
-      --muted: #9aa8bf;
-      --line: rgba(255, 255, 255, 0.09);
-      --accent: #38c8f1;
-      --accent-2: #1b6fd0;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 18% 18%, rgba(56, 200, 241, 0.12), transparent 28%),
-        radial-gradient(circle at 82% 72%, rgba(27, 111, 208, 0.18), transparent 26%),
-        linear-gradient(180deg, #04122c 0%, #031126 100%);
-      padding: 32px 16px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1020px, 100%);
-      margin: 0 auto;
-    }
-
-    .card {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(8, 23, 52, 0.96), rgba(4, 14, 34, 0.96));
-      box-shadow: var(--shadow);
-      position: relative;
-      isolation: isolate;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: auto -10% -32% 42%;
-      height: 72%;
-      background:
-        radial-gradient(circle at 25% 30%, rgba(56, 200, 241, 0.24), transparent 18%),
-        radial-gradient(circle at 58% 48%, rgba(27, 111, 208, 0.24), transparent 22%),
-        radial-gradient(circle at 82% 42%, rgba(56, 200, 241, 0.18), transparent 14%);
-      filter: blur(16px);
-      opacity: 0.75;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      right: -8%;
-      bottom: -10%;
-      width: 62%;
-      height: 56%;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M20 270 C120 245, 165 330, 250 280 S405 140, 500 215 655 300, 780 172' stroke='rgba(56,200,241,0.72)' stroke-width='4'/%3E%3Cpath d='M18 295 C120 270, 178 345, 260 302 S408 160, 505 232 662 314, 780 198' stroke='rgba(27,111,208,0.58)' stroke-width='2'/%3E%3Cg fill='rgba(56,200,241,0.65)'%3E%3Ccircle cx='257' cy='301' r='3'/%3E%3Ccircle cx='499' cy='214' r='3'/%3E%3Ccircle cx='779' cy='173' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-size: contain;
-      opacity: 0.72;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .content {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-      gap: 28px;
-      align-items: center;
-      padding: 34px 30px 28px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .logo-mark {
-      width: 60px;
-      height: 60px;
-      flex: 0 0 60px;
-      display: block;
-    }
-
-    .brand-copy {
-      min-width: 0;
-    }
-
-    .brand-name {
-      font-size: 1.7rem;
-      letter-spacing: 0.22em;
-      font-weight: 700;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .brand-sub {
-      margin-top: 5px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-    }
-
-    .brand-sub::before,
-    .brand-sub::after {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.85;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: var(--accent);
-      font-size: 0.92rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.5rem, 5vw, 4.3rem);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      max-width: 11ch;
-    }
-
-    p {
-      margin: 0 0 14px;
-      max-width: 58ch;
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.72;
-    }
-
-    .accent {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(56, 200, 241, 0.34);
-      color: var(--text);
-      font-weight: 600;
-      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(56, 200, 241, 0.55);
-    }
-
-    .button.primary {
-      background: linear-gradient(135deg, rgba(56, 200, 241, 0.18), rgba(27, 111, 208, 0.16));
-    }
-
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--muted);
-    }
-
-    .side {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .panel {
-      width: min(100%, 350px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
-      padding: 22px;
-      backdrop-filter: blur(8px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .panel h2 {
-      margin: 0 0 18px;
-      color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .item {
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 14px;
-    }
-
-    .item:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    .label {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .value {
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 18px 30px 24px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 900px) {
-      .content,
-      footer {
-        padding-left: 22px;
-        padding-right: 22px;
-      }
-
-      .content {
-        grid-template-columns: 1fr;
-      }
-
-      .side {
-        justify-content: flex-start;
-      }
-
-      .card::after {
-        width: 88%;
-        right: -12%;
-        bottom: -4%;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .brand-name {
-        font-size: 1.3rem;
-        letter-spacing: 0.16em;
-      }
-
-      .logo-mark {
-        width: 48px;
-        height: 48px;
-        flex-basis: 48px;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordar, LLC — Fintech Software Consulting &amp; Infrastructure</title>
+  <meta name="description" content="Nordar, LLC is an independent software consulting company specializing in fintech, infrastructure, and business systems for financial services. Founded in 2006.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container card">
-    <section class="content">
-      <div>
-        <div class="brand">
-          <svg class="logo-mark" viewBox="0 0 72 72" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="logoBg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#05152d" />
-                <stop offset="100%" stop-color="#061021" />
-              </linearGradient>
-              <linearGradient id="bars" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#58d7f4" />
-                <stop offset="100%" stop-color="#1b6fd0" />
-              </linearGradient>
-            </defs>
-            <rect x="0.5" y="0.5" width="71" height="71" rx="18" fill="url(#logoBg)" stroke="rgba(255,255,255,0.08)" />
-            <path d="M12 53V21.5c0-1.1.9-2 2-2h6.3l20.1 23.5V21.5c0-1.1.9-2 2-2h7.1c1.1 0 2 .9 2 2V51c0 1.1-.9 2-2 2h-5.7c-.6 0-1.2-.3-1.6-.8L23.7 30.6V51c0 1.1-.9 2-2 2H14c-1.1 0-2-.9-2-2Z" fill="#f1f3f7" />
-            <rect x="40" y="28" width="8.5" height="25" rx="2.2" fill="url(#bars)" />
-            <rect x="51.5" y="18" width="8.5" height="35" rx="2.2" fill="url(#bars)" />
-            <rect x="63" y="8" width="8.5" height="45" rx="2.2" fill="url(#bars)" transform="translate(-4 0)" />
-          </svg>
-          <div class="brand-copy">
-            <div class="brand-name">NORDAR</div>
-            <div class="brand-sub">LLC</div>
-          </div>
-        </div>
 
-        <div class="eyebrow">Fintech software consulting and app publishing</div>
-        <h1>Fintech software consulting and practical <span class="accent">solutions.</span></h1>
-        <p>
-          Nordar, LLC is an independent software consulting company specializing in fintech,
-          market data systems, trading-related software, and practical business applications.
+  <nav class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__logo">Nordar <span>LLC</span></a>
+      <ul class="site-nav__links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="mailto:contact@nordarllc.com">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__label">Est. 2006</div>
+    <h1 class="hero__title">Fintech software consulting and practical solutions.</h1>
+    <p class="hero__subtitle">
+      Nordar, LLC is an independent software consulting company that builds and 
+      supports the technology infrastructure behind financial asset management 
+      operations — from the ground up.
+    </p>
+  </header>
+
+  <section class="section section--bordered">
+    <div class="section__label">What We Do</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card__icon">⬡</span>
+        <h3 class="card__title">Infrastructure</h3>
+        <p class="card__desc">
+          Full-stack technology infrastructure for asset management firms — networking, 
+          cybersecurity, disaster recovery, and telephony in hybrid and cloud environments.
         </p>
-        <p>
-          Founded in 2006, Nordar provides software engineering, consulting, and product
-          development services for financial and technology-focused clients.
+      </div>
+      <div class="card">
+        <span class="card__icon">⟁</span>
+        <h3 class="card__title">Back-Office Systems</h3>
+        <p class="card__desc">
+          Workflow design, process optimization, and custom software development to 
+          support day-to-day back-office operations and reporting.
         </p>
-        <div class="actions">
-          <a class="button primary" href="mailto:contact@nordarllc.com">Contact</a>
-          <a class="button secondary" href="/privacy.html">Privacy Policy</a>
-        </div>
       </div>
-
-      <div class="side">
-        <aside class="panel">
-          <h2>Nordar, LLC</h2>
-          <div class="item">
-            <span class="label">Focus</span>
-            <div class="value">Software consulting, fintech systems, and product development</div>
-          </div>
-          <div class="item">
-            <span class="label">Contact</span>
-            <div class="value"><a href="mailto:contact@nordarllc.com">contact@nordarllc.com</a></div>
-          </div>
-          <div class="item">
-            <span class="label">Website</span>
-            <div class="value"><a href="https://www.nordarllc.com">www.nordarllc.com</a></div>
-          </div>
-        </aside>
+      <div class="card">
+        <span class="card__icon">◈</span>
+        <h3 class="card__title">Ongoing Support</h3>
+        <p class="card__desc">
+          Continuous maintenance and support for the infrastructure and systems we 
+          build — ensuring reliability and performance over the long term.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <div>© <span id="year"></span> Nordar, LLC. All rights reserved.</div>
-      <div>Engineering. Consulting. Market data. Focused on results.</div>
-    </footer>
-  </main>
+  <section class="section section--bordered">
+    <div class="section__label">At a Glance</div>
+    <div class="stats">
+      <div class="stat">
+        <span class="stat__number">2006</span>
+        <span class="stat__label">Founded</span>
+      </div>
+      <div class="stat">
+        <span class="stat__number">Fintech</span>
+        <span class="stat__label">Industry Focus</span>
+      </div>
+      <div class="stat">
+        <span class="stat__number">Full-Stack</span>
+        <span class="stat__label">Infrastructure to Software</span>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <div class="cta">
+    <h2 class="cta__heading">Let's talk about your project.</h2>
+    <a href="mailto:contact@nordarllc.com" class="cta__link">contact@nordarllc.com</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span class="site-footer__copy">&copy; 2026 Nordar, LLC. All rights reserved.</span>
+      <ul class="site-footer__links">
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="mailto:contact@nordarllc.com">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
 </body>
 </html>
