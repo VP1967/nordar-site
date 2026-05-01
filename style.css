@@ -443,12 +443,19 @@ body {
   border-color: var(--color-accent);
 }
 
-/* Privacy policy — tighter vertical rhythm between stacked sections */
+/* Main pages + privacy — less space above hero eyebrow (SERVICES, ABOUT, etc.) */
+.page-home .hero,
+.page-about .hero,
+.page-services .hero,
 .page-privacy .hero {
   padding-top: var(--space-lg);
+}
+
+.page-privacy .hero {
   padding-bottom: var(--space-md);
 }
 
+/* Privacy policy — tighter vertical rhythm between stacked sections */
 .page-privacy .section {
   padding-top: var(--space-md);
   padding-bottom: var(--space-md);
@@ -477,6 +484,9 @@ body {
     padding: var(--space-lg) 1.25rem var(--space-md);
   }
 
+  .page-home .hero,
+  .page-about .hero,
+  .page-services .hero,
   .page-privacy .hero {
     padding-top: var(--space-md);
   }
