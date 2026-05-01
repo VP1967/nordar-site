@@ -443,6 +443,21 @@ body {
   border-color: var(--color-accent);
 }
 
+/* Privacy policy — tighter vertical rhythm between stacked sections */
+.page-privacy .hero {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-md);
+}
+
+.page-privacy .section {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.page-privacy .section__label {
+  margin-bottom: var(--space-sm);
+}
+
 /* ---- RESPONSIVE ---- */
 
 @media (max-width: 640px) {
@@ -462,8 +477,17 @@ body {
     padding: var(--space-lg) 1.25rem var(--space-md);
   }
 
+  .page-privacy .hero {
+    padding-top: var(--space-md);
+  }
+
   .section {
     padding: var(--space-md) 1.25rem;
+  }
+
+  .page-privacy .section {
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
   }
 
   .cta {
