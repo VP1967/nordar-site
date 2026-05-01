@@ -1,97 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="default">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nordar, LLC — Fintech Software Consulting &amp; Infrastructure</title>
-  <meta name="description" content="Nordar, LLC is an independent software consulting company specializing in fintech, infrastructure, and business systems for financial services. Founded in 2006.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nordar — Infrastructure for asset management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page-home">
+<body>
+<div id="root"></div>
 
-  <nav class="site-nav">
-    <div class="site-nav__inner">
-      <a href="/" class="site-nav__logo">Nordar <span>LLC</span></a>
-      <ul class="site-nav__links">
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="mailto:contact@nordarllc.com">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<script>
+  const NORDAR_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "logo": "C",
+    "theme": "default",
+    "ctaHover": "#7d8997"
+  }/*EDITMODE-END*/;
+  window.NORDAR_DEFAULTS = NORDAR_DEFAULTS;
+</script>
 
-  <header class="hero">
-    <div class="hero__label">Est. 2006</div>
-    <h1 class="hero__title">Fintech software consulting and practical solutions.</h1>
-    <p class="hero__subtitle">
-      Nordar, LLC is an independent software consulting company that builds and 
-      supports the technology infrastructure behind financial asset management 
-      operations — from the ground up.
-    </p>
-  </header>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-  <section class="section section--bordered">
-    <div class="section__label">What We Do</div>
-    <div class="card-grid">
-      <div class="card">
-        <span class="card__icon">⬡</span>
-        <h3 class="card__title">Infrastructure</h3>
-        <p class="card__desc">
-          Full-stack technology infrastructure for asset management firms — networking, 
-          cybersecurity, disaster recovery, and telephony in hybrid and cloud environments.
-        </p>
-      </div>
-      <div class="card">
-        <span class="card__icon">⟁</span>
-        <h3 class="card__title">Back-Office Systems</h3>
-        <p class="card__desc">
-          Workflow design, process optimization, and custom software development to 
-          support day-to-day back-office operations and reporting.
-        </p>
-      </div>
-      <div class="card">
-        <span class="card__icon">◈</span>
-        <h3 class="card__title">Ongoing Support</h3>
-        <p class="card__desc">
-          Continuous maintenance and support for the infrastructure and systems we 
-          build — ensuring reliability and performance over the long term.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--bordered">
-    <div class="section__label">At a Glance</div>
-    <div class="stats">
-      <div class="stat">
-        <span class="stat__number">2006</span>
-        <span class="stat__label">Founded</span>
-      </div>
-      <div class="stat">
-        <span class="stat__number">Fintech</span>
-        <span class="stat__label">Industry Focus</span>
-      </div>
-      <div class="stat">
-        <span class="stat__number">Full-Stack</span>
-        <span class="stat__label">Infrastructure to Software</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta">
-    <h2 class="cta__heading">Let's talk about your project.</h2>
-    <a href="mailto:contact@nordarllc.com" class="cta__link">contact@nordarllc.com</a>
-  </div>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <span class="site-footer__copy">&copy; 2026 Nordar, LLC. All rights reserved.</span>
-      <ul class="site-footer__links">
-        <li><a href="/privacy.html">Privacy Policy</a></li>
-        <li><a href="mailto:contact@nordarllc.com">Contact</a></li>
-      </ul>
-    </div>
-  </footer>
-
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="logos.jsx"></script>
+<script type="text/babel" src="site.jsx"></script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById("root")).render(<Site />);
+</script>
 </body>
 </html>

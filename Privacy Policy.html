@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Nordar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Privacy page-specific layout */
+  .doc-hero {
+    padding: 80px 0 56px;
+  }
+  .doc-hero h1 {
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 72px);
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+    margin: 24px 0 0;
+    text-wrap: balance;
+    max-width: 18ch;
+  }
+  .doc-meta {
+    display: flex;
+    gap: 48px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    flex-wrap: wrap;
+  }
+  .doc-meta .row { display: flex; flex-direction: column; gap: 4px; }
+  .doc-meta .label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .doc-meta .val { font-size: 14px; color: var(--ink-2); }
+
+  .doc-body {
+    padding: 64px 0 96px;
+    border-top: 1px solid var(--rule);
+  }
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .doc-toc {
+    position: sticky;
+    top: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .doc-toc .toc-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .doc-toc a {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    padding: 6px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    margin-left: -14px;
+    transition: border-color .2s, color .2s;
+  }
+  .doc-toc a:hover {
+    color: var(--ink);
+    border-left-color: var(--ink);
+  }
+
+  .doc-section {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 32px;
+  }
+  .doc-section:first-child { padding-top: 0; }
+  .doc-section:last-child { border-bottom: none; padding-bottom: 0; }
+  .doc-section .num {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 6px;
+  }
+  .doc-section h2 {
+    margin: 0 0 16px;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .doc-section p {
+    margin: 0 0 14px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 64ch;
+  }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section strong { color: var(--ink); font-weight: 500; }
+
+  @media (max-width: 880px) {
+    .doc-grid { grid-template-columns: 1fr; gap: 24px; }
+    .doc-toc { position: static; flex-direction: row; flex-wrap: wrap; gap: 0; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+    .doc-toc a { margin-left: 0; padding-left: 0; padding-right: 16px; border-left: none; }
+    .doc-section { grid-template-columns: 1fr; gap: 8px; }
+    .doc-section .num { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="Nordar Site.html" class="brand">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nordar mark">
+        <path d="M8 5 H4 V27 H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" fill="none" />
+        <path d="M24 5 H28 V27 H24" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" fill="none" />
+        <path d="M11 23 V9 L21 23 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" fill="none" />
+      </svg>
+      <span class="word">Nordar</span>
+    </a>
+    <nav class="nav-links">
+      <a href="Nordar Site.html#services">Services</a>
+      <a href="Nordar Site.html#approach">Approach</a>
+      <a href="Nordar Site.html#stack">Stack</a>
+      <a href="Nordar Site.html#principles">Principles</a>
+      <a href="Nordar Site.html#contact" class="nav-cta">
+        Start a project <span class="mono">→</span>
+      </a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" id="navToggle">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 5 H14 M2 11 H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
+      </svg>
+    </button>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="Nordar Site.html#services"><span>Services</span><span class="num">01</span></a>
+      <a href="Nordar Site.html#approach"><span>Approach</span><span class="num">02</span></a>
+      <a href="Nordar Site.html#stack"><span>Stack</span><span class="num">03</span></a>
+      <a href="Nordar Site.html#principles"><span>Principles</span><span class="num">04</span></a>
+      <div class="drawer-divider"></div>
+      <a href="Nordar Site.html#contact" class="drawer-cta">
+        <span>Start a project</span><span class="mono">→</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="doc-hero">
+  <div class="container">
+    <div class="eyebrow">◇ Legal · Privacy</div>
+    <h1>Privacy Policy.</h1>
+    <div class="doc-meta">
+      <div class="row">
+        <span class="label">Effective</span>
+        <span class="val">May 2026</span>
+      </div>
+      <div class="row">
+        <span class="label">Applies to</span>
+        <span class="val">nordarllc.com and Nordar products &amp; services</span>
+      </div>
+      <div class="row">
+        <span class="label">Contact</span>
+        <span class="val">contact@nordarllc.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<section class="doc-body">
+  <div class="container">
+    <div class="doc-grid">
+      <aside class="doc-toc">
+        <span class="toc-label">Contents / 06</span>
+        <a href="#overview">01 — Overview</a>
+        <a href="#principles">02 — Principles</a>
+        <a href="#applications">03 — Applications</a>
+        <a href="#services">04 — Services</a>
+        <a href="#website">05 — Website</a>
+        <a href="#communications">06 — Communications</a>
+      </aside>
+
+      <div>
+        <article class="doc-section" id="overview">
+          <span class="num">01</span>
+          <div>
+            <h2>Overview</h2>
+            <p>
+              Nordar, LLC (<strong>"Nordar"</strong>) is committed to minimizing data collection across all of its products and services.
+            </p>
+          </div>
+        </article>
+
+        <article class="doc-section" id="principles">
+          <span class="num">02</span>
+          <div>
+            <h2>General principles</h2>
+            <p>
+              Nordar does not sell personal data. Nordar does not use personal data for advertising or cross-app tracking. Nordar products and services are
+              not designed to collect personal data for advertising purposes.
+            </p>
+          </div>
+        </article>
+
+        <article class="doc-section" id="applications">
+          <span class="num">03</span>
+          <div>
+            <h2>Software applications</h2>
+            <p>
+              For consumer applications developed by Nordar, user-created data is stored locally on the user's device unless explicitly stated otherwise.
+              Individual applications may include their own privacy disclosures within the application that describe app-specific data practices in detail.
+            </p>
+          </div>
+        </article>
+
+        <article class="doc-section" id="services">
+          <span class="num">04</span>
+          <div>
+            <h2>Professional services</h2>
+            <p>
+              Nordar provides infrastructure and technology services to business clients. Data handling for professional engagements is governed by the
+              terms of each individual client agreement. Nordar does not disclose client information to third parties except as required by law or as
+              specified in the applicable agreement.
+            </p>
+          </div>
+        </article>
+
+        <article class="doc-section" id="website">
+          <span class="num">05</span>
+          <div>
+            <h2>Website</h2>
+            <p>
+              The Nordar website may make standard web requests necessary to serve pages securely and reliably. Nordar does not use the website to collect
+              personal data, serve advertising, or perform cross-site tracking.
+            </p>
+          </div>
+        </article>
+
+        <article class="doc-section" id="communications">
+          <span class="num">06</span>
+          <div>
+            <h2>Communications</h2>
+            <p>
+              If you contact Nordar by email or other communication channels, any information you provide is used only for responding to your inquiry or
+              for related business communication.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <a href="Nordar Site.html" class="brand" style="margin-bottom: 16px;">
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nordar mark">
+            <path d="M8 5 H4 V27 H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" fill="none" />
+            <path d="M24 5 H28 V27 H24" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" fill="none" />
+            <path d="M11 23 V9 L21 23 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" fill="none" />
+          </svg>
+          <span class="word">Nordar</span>
+        </a>
+        <p style="font-size: 14px; color: var(--ink-2); max-width: 32ch; margin-top: 16px; line-height: 1.55;">
+          Independent software consulting for the firms that build, operate, and depend on financial asset-management infrastructure.
+        </p>
+      </div>
+      <div>
+        <h5>Practice</h5>
+        <ul>
+          <li><a href="Nordar Site.html#services">Services</a></li>
+          <li><a href="Nordar Site.html#approach">Approach</a></li>
+          <li><a href="Nordar Site.html#stack">Stack</a></li>
+          <li><a href="Nordar Site.html#principles">Principles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Engage</h5>
+        <ul>
+          <li><a href="Nordar Site.html#contact">Contact</a></li>
+          <li><a href="Nordar Site.html#contact">Architecture review</a></li>
+          <li><a href="Nordar Site.html#contact">RFP / proposal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+          <li>contact@nordarllc.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Nordar, LLC · 2026</span>
+      <span>Built and operated, ground-up.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('navToggle');
+    var drawer = document.getElementById('navDrawer');
+    var navInner = document.querySelector('.nav-inner');
+    if (!btn || !drawer) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      drawer.classList.toggle('open');
+    });
+    document.addEventListener('mousedown', function (e) {
+      if (navInner && !navInner.contains(e.target)) drawer.classList.remove('open');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') drawer.classList.remove('open');
+    });
+    drawer.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { drawer.classList.remove('open'); });
+    });
+  })();
+</script>
+
+</body>
+</html>
