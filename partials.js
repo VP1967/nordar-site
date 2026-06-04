@@ -45,7 +45,7 @@
   }
 
   function brandHref() {
-    return page === "home" ? "#" : "Nordar Site.html";
+    return page === "home" ? "#" : "index.html";
   }
 
   var navHtml =
@@ -71,7 +71,7 @@
       '<div class="container">' +
         '<div class="foot">' +
           '<div>' +
-            '<a href="Nordar Site.html" class="brand" style="margin-bottom: 16px;">' + logoSvg + '<span class="word">Nordar</span></a>' +
+            '<a href="index.html" class="brand" style="margin-bottom: 16px;">' + logoSvg + '<span class="word">Nordar</span></a>' +
             '<p style="font-size: 14px; color: var(--ink-2); max-width: 32ch; margin-top: 16px; line-height: 1.55;">' +
               'Independent software consulting for the firms that build, operate, and depend on financial asset-management infrastructure.' +
             '</p>' +
@@ -79,7 +79,7 @@
           '<div>' +
             '<h5>Pages</h5>' +
             '<ul>' +
-              '<li><a href="Nordar Site.html">Home</a></li>' +
+              '<li><a href="index.html">Home</a></li>' +
               '<li><a href="Services.html">Services</a></li>' +
               '<li><a href="About.html">About</a></li>' +
               '<li><a href="Contact.html">Contact</a></li>' +
@@ -99,7 +99,7 @@
             '<ul>' +
               '<li>contact@nordarllc.com</li>' +
               '<li>By appointment</li>' +
-              '<li><a href="Privacy Policy.html">Privacy Policy</a></li>' +
+              '<li><a href="privacy-policy.html">Privacy Policy</a></li>' +
             '</ul>' +
           '</div>' +
         '</div>' +

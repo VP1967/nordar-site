@@ -294,7 +294,7 @@ const Site = () => {
               <ul>
                 <li>contact@nordarllc.com</li>
                 <li>By appointment</li>
-                <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
