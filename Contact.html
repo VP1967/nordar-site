@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default" data-page="contact">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Nordar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="nav-mount"></div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">◇ Engage Nordar</div>
+    <h1>Start a <span class="em">conversation.</span></h1>
+    <p class="lead">
+      Tell us about the firm, the operation, and what you're trying to build or fix. We'll respond within two business days,
+      typically with a short call to understand the shape of the engagement.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <aside class="contact-info">
+        <div class="row">
+          <span class="label">Direct</span>
+          <span class="val"><a href="mailto:contact@nordarllc.com">contact@nordarllc.com</a></span>
+        </div>
+        <div class="row">
+          <span class="label">Office</span>
+          <span class="val">By appointment</span>
+        </div>
+        <div class="row">
+          <span class="label">Response</span>
+          <span class="val">Within 2 business days</span>
+        </div>
+        <div class="row">
+          <span class="label">Engagement types</span>
+          <span class="val">Architecture review, full build, ongoing operations</span>
+        </div>
+        <p>
+          For RFPs and structured procurement, attach the document or share a portal link.
+          For exploratory conversations, a few sentences is usually enough.
+        </p>
+      </aside>
+
+      <form class="form" id="contactForm" novalidate>
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          <span>Firm</span>
+          <input type="text" name="firm" autocomplete="organization" />
+        </label>
+        <label>
+          <span>Role</span>
+          <input type="text" name="role" autocomplete="organization-title" />
+        </label>
+        <label class="full">
+          <span>Engagement type</span>
+          <select name="engagement">
+            <option value="">Select one…</option>
+            <option>Architecture review</option>
+            <option>New build / greenfield infrastructure</option>
+            <option>Migration or modernization</option>
+            <option>Cybersecurity &amp; compliance</option>
+            <option>Disaster recovery &amp; continuity</option>
+            <option>Custom software development</option>
+            <option>Ongoing support / managed operations</option>
+            <option>Other / unsure</option>
+          </select>
+        </label>
+        <label class="full">
+          <span>Message</span>
+          <textarea name="message" required placeholder="What are you trying to build, fix, or evaluate?"></textarea>
+        </label>
+        <button type="submit" class="form-submit">
+          <span>Send message</span>
+          <span class="mono">→</span>
+        </button>
+        <div class="form-status" id="formStatus" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- APP SUPPORT -->
+<section class="block" id="app-support" style="padding: 64px 0;">
+  <div class="container">
+    <div class="app-support">
+      <div class="app-support-label">
+        <span class="eyebrow">◇ Application support</span>
+      </div>
+      <div class="app-support-body">
+        <h3>Already using a Nordar app?</h3>
+        <p>
+          For application support, subscription questions, bug reports, or feature requests, contact us at
+          <a href="mailto:contact@nordarllc.com">contact@nordarllc.com</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="partials.js"></script>
+<script>
+  (function () {
+    var form = document.getElementById("contactForm");
+    var status = document.getElementById("formStatus");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var missing = [];
+      ["name", "email", "message"].forEach(function (k) {
+        if (!String(data.get(k) || "").trim()) missing.push(k);
+      });
+      if (missing.length) {
+        status.hidden = false;
+        status.style.color = "#A03030";
+        status.textContent = "Please fill in: " + missing.join(", ");
+        return;
+      }
+      var subject = encodeURIComponent("Nordar inquiry — " + (data.get("name") || ""));
+      var body = encodeURIComponent(
+        "Name: " + (data.get("name") || "") + "\n" +
+        "Email: " + (data.get("email") || "") + "\n" +
+        "Firm: " + (data.get("firm") || "") + "\n" +
+        "Role: " + (data.get("role") || "") + "\n" +
+        "Engagement: " + (data.get("engagement") || "") + "\n\n" +
+        (data.get("message") || "")
+      );
+      status.hidden = false;
+      status.style.color = "";
+      status.textContent = "Opening your mail client… If nothing happens, email contact@nordarllc.com directly.";
+      window.location.href = "mailto:contact@nordarllc.com?subject=" + subject + "&body=" + body;
+    });
+  })();
+</script>
+
+</body>
+</html>
